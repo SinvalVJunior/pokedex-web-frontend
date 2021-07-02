@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getUserInfo } from '../../clients/backend';
+import { getUserInfo } from '../../../clients/backend';
 
 export default function Home () {
     const [userInfo, setUserInfo] = useState('');

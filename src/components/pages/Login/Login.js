@@ -53,13 +53,6 @@ export default function LoginPage() {
                             label: classes.buttonLabel
                         }} type="submit">
                             login
-                            <div className={classes.pokeball}>
-                                <CardMedia
-                                    component="img"
-                                    alt="Contemplative Reptile"
-                                    src={pokeball}
-                                />
-                            </div>
                         </Button>
                     </CardActions>
                 </Card>

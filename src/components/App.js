@@ -4,11 +4,13 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme';
 import Home from './pages/Home';
 import LoginPage from './pages/Login/Login';
+import Navbar from './Navbar/Navbar';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
             <BrowserRouter>
+            <Navbar />
                 <Switch>
                     < Route path="/" exact component={LoginPage}/>
                     < Route path="/home" exact component={Home}/>

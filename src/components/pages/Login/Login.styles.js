@@ -21,14 +21,14 @@ export const useStyles = makeStyles((theme) => {
             margin: theme.spacing(2),
         },
         button: {
-            background: '#F51720',
+            background: theme.palette.primary.main,
             borderRadius: 3,
             border: 0,
             color: 'white',
             height: 48,
             padding: '0 30px',
             "&:hover": {
-                backgroundColor: "#F51720"
+                backgroundColor: theme.palette.primary.main
             }
         },
         buttonLabel: {
@@ -39,15 +39,8 @@ export const useStyles = makeStyles((theme) => {
         },
         header: {
             textAlign: 'center',
-            background: '#F51720',
+            background: theme.palette.primary.main,
             color: '#fff'
-        },
-        pokeball: {
-            maxWidth: 20,
-            maxHeight: 20,
-            marginLeft: 10,
-            display: 'flex',
-            justifyContent: 'center'
         }
     }
 

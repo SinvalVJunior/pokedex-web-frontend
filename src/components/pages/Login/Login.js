@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Box, CardContent, Card, Button, CardActions, CardHeader, TextField, CardMedia } from '@material-ui/core';
+import { Box, CardContent, Card, Button, CardActions, CardHeader, TextField } from '@material-ui/core';
 import { useStyles } from './Login.styles';
-import pokeball from '../../../assets/images/pokeball.png'
 import { postLogin } from '../../../clients/backend';
 import { useHistory } from 'react-router-dom';
 
@@ -53,13 +52,6 @@ export default function LoginPage() {
                             label: classes.buttonLabel
                         }} type="submit">
                             login
-                            <div className={classes.pokeball}>
-                                <CardMedia
-                                    component="img"
-                                    alt="Contemplative Reptile"
-                                    src={pokeball}
-                                />
-                            </div>
                         </Button>
                     </CardActions>
                 </Card>

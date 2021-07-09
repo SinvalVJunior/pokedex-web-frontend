@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Box, CardContent, Card, Button, CardActions, CardHeader, TextField, CardMedia } from '@material-ui/core';
+import { Box, CardContent, Card, Button, CardActions, CardHeader, TextField } from '@material-ui/core';
 import { useStyles } from './Login.styles';
-import pokeball from '../../../assets/images/pokeball.png'
 import { postLogin } from '../../../clients/backend';
 import { useHistory } from 'react-router-dom';
 

@@ -15,14 +15,14 @@ function Navbar() {
         <>
             <IconContext.Provider value={{ color: '#fff' }}>
                 <div className={classes.navbar}>
-                    <Link to='#' className={classes.menu_bars}>
+                    <Link to='#' className={classes.menuBars}>
                         <FaIcons.FaBars onClick={showSidebar} />
                     </Link>
                 </div>
-                <nav className={sidebar ? `${classes.nav_menu} ${classes.nav_menu_active}` : classes.nav_menu}>
-                    <ul className={classes.nav_menu_items} onClick={showSidebar}>
-                        <li className={classes.navbar_toggle}>
-                            <Link to='#' className={classes.menu_bars}>
+                <nav className={sidebar ? `${classes.navMenu} ${classes.navMenuActive}` : classes.navMenu}>
+                    <ul className={classes.navMenuItems} onClick={showSidebar}>
+                        <li className={classes.navbarToggle}>
+                            <Link to='#' className={classes.menuBars}>
                                 <AiIcons.AiOutlineClose />
                             </Link>
                         </li>

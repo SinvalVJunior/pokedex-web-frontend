@@ -7,25 +7,25 @@ import { useStyles } from './Navbar.styles.js';
 
 const SidebarData = () => {
   const classes = useStyles();
-  const className = `${classes.nav_text} ${classes.nav_text_a} ${classes.nav_text_a_hover}`
+
   return [
     {
       title: 'Home',
       path: '/',
       icon: <AiIcons.AiFillHome />,
-      cName: className
+      cName: classes.navText
     },
     {
       title: 'Inventory',
       path: '/inventory',
       icon: <IoIcons.IoIosPaper />,
-      cName: className
+      cName: classes.navText
     },
     {
       title: 'Play',
       path: '/play',
       icon: <FiIcons.FiPlay />,
-      cName: className
+      cName: classes.navText
     }
   ];
 }

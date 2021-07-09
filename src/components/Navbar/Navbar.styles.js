@@ -9,12 +9,12 @@ export const useStyles = makeStyles((theme) => {
             justifyContent: 'start',
             alignItems: 'center'
         },
-        menu_bars: {
+        menuBars: {
             marginLeft: '2rem',
             fontSize: '1.35rem',
             background: 'none'
         },
-        nav_menu: {
+        navMenu: {
             backgroundColor: theme.palette.primary.main,
             width: '250px',
             height: '100vh',
@@ -25,11 +25,11 @@ export const useStyles = makeStyles((theme) => {
             left: '-100%',
             transition: '850ms'
         },
-        nav_menu_active: {
+        navMenuActive: {
             left: '0',
             transition: '100ms'
         },
-        nav_text: {
+        navText: {
             display: 'flex',
             justifyContent: 'start',
             alignItems: 'center',
@@ -53,11 +53,11 @@ export const useStyles = makeStyles((theme) => {
 
         },
         
-        nav_menu_items: {
+        navMenuItems: {
             width: '100%',
             paddingInlineStart: 0
         },
-        navbar_toggle: {
+        navbarToggle: {
             backgroundColor: theme.palette.primary.main,
             width: '100%',
             height: '80px',

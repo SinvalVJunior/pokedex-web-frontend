@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => {
             backgroundColor: theme.palette.primary.main,
             height: '50px',
             display: 'flex',
-            justifyContent: 'start',
+            justifyContent: 'space-between',
             alignItems: 'center'
         },
         menuBars: {
@@ -52,7 +52,6 @@ export const useStyles = makeStyles((theme) => {
             }
 
         },
-        
         navMenuItems: {
             width: '100%',
             paddingInlineStart: 0

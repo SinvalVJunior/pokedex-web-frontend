@@ -3,17 +3,23 @@ import { Box, CardContent, Card, Button, CardActions, CardHeader, TextField } fr
 import { useStyles } from './Login.styles';
 import { postLogin } from '../../../clients/backend';
 import { useHistory } from 'react-router-dom';
+import { useHomeDispatch } from '../Home/home.context';
+import * as HomeActions from '../Home/home.actions';
 
 export default function LoginPage() {
+    const dispatch = useHomeDispatch();
     const classes = useStyles();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory();
 
     const login = async () => {
-        const { token } = await postLogin(email, password);
+        const { token, user } = await postLogin(email, password);
         if (token) {
+            const userData = JSON.stringify(user);
             localStorage.setItem('token', token);
+            localStorage.setItem('user', userData);
+            dispatch(HomeActions.setUser(user));
             history.push('/home');
         }
     }

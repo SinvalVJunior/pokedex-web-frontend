@@ -9,13 +9,13 @@ import Navbar from './Navbar/Navbar';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-            <BrowserRouter>
-            <Navbar />
-                <Switch>
-                    < Route path="/" exact component={LoginPage}/>
-                    < Route path="/home" exact component={Home}/>
-                </Switch>
-            </BrowserRouter>
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          < Route path="/login" exact component={LoginPage} />
+          < Route path="/" exact component={Home} />
+        </Switch>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

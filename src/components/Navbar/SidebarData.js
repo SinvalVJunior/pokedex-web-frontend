@@ -29,4 +29,17 @@ const SidebarData = () => {
   ];
 }
 
-export { SidebarData }
+const SidebarNotLoggedData = () => {
+  const classes = useStyles();
+
+  return [
+    {
+      title: 'Login',
+      path: '/login',
+      icon: <AiIcons.AiOutlineLogin />,
+      cName: classes.navText
+    }
+  ];
+}
+
+export { SidebarData, SidebarNotLoggedData }

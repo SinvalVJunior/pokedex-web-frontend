@@ -35,6 +35,7 @@ export const useStyles = makeStyles((theme) => {
             alignItems: 'center',
             listStyle: 'none',
             height: '60px',
+            fontFamily: 'Pokemon',
             '& a': {
                 textDecoration: 'none',
                 color: '#f5f5f5',

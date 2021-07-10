@@ -69,7 +69,7 @@ export default function UserMenu() {
                 <Link to='/login' className={classes.userLogo}>
                     <FaIcons.FaUser />
                     <Typography variant='caption' className={classes.menuUserNotLogged} >
-                        Olá, bem vindo! Faça login
+                        Olá, bem-vindo! Faça login
                     </Typography>
                 </Link>
                 :

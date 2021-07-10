@@ -33,6 +33,7 @@ export const useStyles = makeStyles((theme) => {
         },
         buttonLabel: {
             textTransform: 'capitalize',
+            fontFamily: 'Pokemon'
         },
         card: {
             marginTop: theme.spacing(10)
@@ -41,6 +42,9 @@ export const useStyles = makeStyles((theme) => {
             textAlign: 'center',
             background: theme.palette.primary.main,
             color: '#fff'
+        },
+        title: {
+            fontFamily: 'Pokemon'
         }
     }
 

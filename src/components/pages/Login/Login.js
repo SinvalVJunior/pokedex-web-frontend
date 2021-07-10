@@ -28,7 +28,9 @@ export default function LoginPage() {
         <form onSubmit={async (e) => { e.preventDefault(); login(); }} >
             <Box className={classes.root}>
                 <Card className={classes.card}>
-                    <CardHeader className={classes.header} title='Welcome to Pokédex' />
+                    <CardHeader className={classes.header} title='Welcome to Pokédex' classes={{
+                        title: classes.title
+                    }} />
                     <CardContent>
                         <TextField
                             required

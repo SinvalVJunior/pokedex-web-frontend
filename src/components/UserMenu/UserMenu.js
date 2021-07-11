@@ -2,12 +2,11 @@ import React, { useEffect, useState, useRef } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link, useHistory } from 'react-router-dom';
-import { Typography, Popper, Button, Grow, ClickAwayListener, MenuList, MenuItem, Paper, Container, TextField,Modal,InputLabel  } from '@material-ui/core';
+import { Typography, Popper, Button, Grow, ClickAwayListener, MenuList, MenuItem, Paper, Container } from '@material-ui/core';
 import { useStyles } from './UserMenu.styles.js';
 import { useHome } from '../pages/Home/home.context';
 import * as HomeActions from '../pages/Home/home.actions';
-import Pokeball from '../../assets/images/pokeball.png';
-import {editUser} from '../../clients/backend';
+
 
 export default function UserMenu() {
     const [state, dispatch] = useHome();
@@ -16,12 +15,6 @@ export default function UserMenu() {
     const [user, setUser] = useState({});
     const anchorRef = useRef(null);
     const history = useHistory();
-    const [openModal, setOpenModal] = useState(false);
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
-    const [username, setUserName] = useState('');
 
     useEffect(() => {
         setUser(state?.user);
@@ -56,14 +49,7 @@ export default function UserMenu() {
     }, [open]);
 
     const handleEdit = () => {
-        setOpenModal(true)
-    }
-    const closeEdit = () => {
-        setOpenModal(false)
-    }
-    const submitForm = () => {
-        closeEdit();
-        editUser(email,name,username,password);
+        history.push('/edit');
     }
 
     const handleLogout = () => {
@@ -77,7 +63,6 @@ export default function UserMenu() {
     }
 
     return (
-        <>
         <div>
             {!user?.userId ?
                 <Link to='/login' className={classes.userLogo}>
@@ -130,91 +115,7 @@ export default function UserMenu() {
             }
 
         </div>
-        <Modal open={openModal} onClose={handleClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" > 
-                <Paper className={classes.modalPaper}>
-                   <img src={Pokeball} alt="Pokeball" className={classes.Icon}></img>
-                    <h1 className={classes.perfilTitle}>
-                        Profile
-                    </h1>
-                    <InputLabel className={classes.closeSpace}>Name:</InputLabel>  
-                    <TextField
-                        className={classes.closeSpace}
-                        fullWidth
-                        size="small"
-                        required
-                        type='string'
-                        name='nome'
-                        variant='outlined'
-                        margin='normal'
-                        onChange={(value) => { setName(value.target.value) }}
-                    /> 
-                    <InputLabel className={classes.closeSpace}>Email:</InputLabel>  
-                    <TextField
-                        className={classes.closeSpace}
-                        required
-                        size="small"
-                        fullWidth
-                        type='email'
-                        name='email'
-                        variant='outlined'
-                        margin='normal'
-                        onChange={(value) => { setEmail(value.target.value) }}
-                    />
-                    <InputLabel >Username:</InputLabel>  
-                    <TextField
-                        className={classes.closeSpace}
-                        fullWidth
-                        required
-                        type='string'
-                        name='Nome de usuario'
-                        size="small"
-                        variant='outlined'
-                        margin='normal'
-                        onChange={(value) => { setUserName(value.target.value) }}
-                    /> 
-                    <InputLabel className={classes.closeSpace}>City:</InputLabel>  
-                    <TextField
-                        className={classes.closeSpace}
-                        fullWidth
-                        required
-                        type='string'
-                        size="small"
-                        name='Cidade'
-                        variant='outlined'
-                        margin='normal'
-                    /> 
-                    <InputLabel className={classes.closeSpace}>Password:</InputLabel>  
-                    <TextField
-                        className={classes.closeSpace}
-                        fullWidth
-                        required
-                        size="small"
-                        type='password'
-                        name='password'
-                        variant='outlined'
-                        margin='normal'
-                        onChange={(value) => { setPassword(value.target.value) }}
-                    />
-                    <InputLabel className={classes.closeSpace}>Birth date:</InputLabel>  
-                    <TextField
-                        className={classes.closeSpace}
-                        fullWidth
-                        required
-                        type='date'
-                        name='data'
-                        size="small"
-                        variant='outlined'
-                        margin='normal'
-                    />
-                    <Button variant='contained' onClick={submitForm} classes={{
-                            root: classes.saveButton,
-                            label: classes.buttonLabel,
-                        }} type="submit">
-                            Salvar
-                        </Button>
-                </Paper>        
-            </Modal>
-        </>
+
     );
 
 }

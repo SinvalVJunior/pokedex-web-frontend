@@ -69,7 +69,3 @@ export const getInventory = async (userId) => {
 
   ];
 };
-
-export const editUser = (email,name,username,password) =>{
-    
-}

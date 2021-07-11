@@ -5,6 +5,7 @@ import { theme } from './theme';
 import Home from './pages/Home';
 import LoginPage from './pages/Login/Login';
 import Navbar from './Navbar/Navbar';
+import Inventory from './pages/Inventory/Inventory';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Switch>
+          < Route path="/inventory" exact component={Inventory} />
           < Route path="/login" exact component={LoginPage} />
           < Route path="/" exact component={Home} />
         </Switch>

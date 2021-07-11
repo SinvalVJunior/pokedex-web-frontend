@@ -16,5 +16,5 @@ export default function Home () {
         getPageData();
     },[]);
     
-    return <> { userInfo.name } </>;
+    return <> { userInfo?.name } </>;
 }

@@ -18,7 +18,6 @@ export default function UserMenu() {
 
     useEffect(() => {
         setUser(state?.user);
-        console.log(state?.user);
     }, [state?.user]);
 
     const handleToggle = () => {
@@ -69,7 +68,7 @@ export default function UserMenu() {
                 <Link to='/login' className={classes.userLogo}>
                     <FaIcons.FaUser />
                     <Typography variant='caption' className={classes.menuUserNotLogged} >
-                        Olá, bem-vindo! Faça login
+                        Login
                     </Typography>
                 </Link>
                 :
@@ -85,7 +84,7 @@ export default function UserMenu() {
                         }}
                         disableRipple
                     >
-                        {!open ? <AiIcons.AiOutlineArrowDown /> : <AiIcons.AiOutlineArrowUp />} Olá, {user?.name}!
+                        {!open ? <AiIcons.AiOutlineArrowDown /> : <AiIcons.AiOutlineArrowUp />} Welcome, {user?.name}!
                     </Button>
                     <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                         {({ TransitionProps, placement }) => (
@@ -104,7 +103,7 @@ export default function UserMenu() {
                                     </Container>
                                     <ClickAwayListener onClickAway={handleClose}>
                                         <MenuList variant='menu' autoFocusItem={open} id='menu-list-grow' onKeyDown={handleListKeyDown}>
-                                            <MenuItem className={classes.userEditButton} onClick={handleEdit} disableRipple><AiIcons.AiOutlineEdit className={classes.userLogo} /> Editar</MenuItem>
+                                            <MenuItem className={classes.userEditButton} onClick={handleEdit} disableRipple><AiIcons.AiOutlineEdit className={classes.userLogo} /> Edit</MenuItem>
                                             <MenuItem className={classes.userLoggoutButton} onClick={handleLogout}><AiIcons.AiOutlineLogout className={classes.userLogo} color='red' />Logout</MenuItem>
                                         </MenuList>
                                     </ClickAwayListener>
@@ -116,6 +115,7 @@ export default function UserMenu() {
             }
 
         </div>
+
     );
 
 }

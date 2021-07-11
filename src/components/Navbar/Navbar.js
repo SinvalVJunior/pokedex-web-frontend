@@ -22,7 +22,7 @@ function Navbar() {
     const userLoggedMenu = SidebarData().map((item, index) => {
         return (
             <li key={index} className={item.cName}>
-                <Link to={item.path}>
+                <Link to={item.path} onClick={showSidebar}>
                     {item.icon}
                     <span className={classes.span}>{item.title}</span>
                 </Link>
@@ -34,7 +34,7 @@ function Navbar() {
     const userNotLoggedMenu = SidebarNotLoggedData().map((item, index) => {
         return (
             <li key={index} className={item.cName}>
-                <Link to={item.path}>
+                <Link to={item.path} onClick={showSidebar}>
                     {item.icon}
                     <span className={classes.span}>{item.title}</span>
                 </Link>

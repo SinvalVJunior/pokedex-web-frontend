@@ -68,7 +68,7 @@ export default function LoginPage() {
                             onChange={(value) => { setPassword(value.target.value) }}
                             
                         />
-                        <a onClick={handleEdit} className={classes.link}>Crie sua conta</a>
+                        <a onClick={handleEdit} className={classes.link}>Create your account</a>
                     </CardContent>
                     <CardActions className={classes.buttonWrapper}>
                         <Button variant='contained' classes={{
@@ -80,7 +80,7 @@ export default function LoginPage() {
                     </CardActions>
                 </Card>
             </Box>
-            <Modal open={openModal}  aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" > 
+            <Modal open={openModal} onClose={() => {setOpenModal(false)}}  aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" > 
                 <Paper className={classes.modalPaper}>
                    <img src={Pokeball} alt="Pokeball" className={classes.Icon}></img>
                     <h1 className={classes.perfilTitle}>
@@ -160,7 +160,7 @@ export default function LoginPage() {
                             root: classes.saveButton,
                             label: classes.buttonLabel,
                         }} type="submit">
-                            Salvar
+                            Save
                         </Button>
                 </Paper>        
             </Modal>

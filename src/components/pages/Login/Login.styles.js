@@ -70,9 +70,6 @@ export const useStyles = makeStyles((theme) => {
             padding: '0 30px',
             margin: '50px',
         },
-        buttonLabel: {
-            textTransform: 'capitalize',
-        },
         Icon: {
             position: 'absolute',
             top: '1%',

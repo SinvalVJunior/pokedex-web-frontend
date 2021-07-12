@@ -130,7 +130,7 @@ export default function UserMenu() {
             }
 
         </div>
-        <Modal open={openModal} onClose={handleClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" > 
+        <Modal open={openModal} onClose={() => {setOpenModal(false)}} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" > 
                 <Paper className={classes.modalPaper}>
                    <img src={Pokeball} alt="Pokeball" className={classes.Icon}></img>
                     <h1 className={classes.perfilTitle}>
@@ -210,7 +210,7 @@ export default function UserMenu() {
                             root: classes.saveButton,
                             label: classes.buttonLabel,
                         }} type="submit">
-                            Salvar
+                            Save
                         </Button>
                 </Paper>        
             </Modal>

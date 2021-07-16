@@ -4,7 +4,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme';
 import Home from './pages/Home';
 import LoginPage from './pages/Login/Login';
-import Roulette from './pages/Roulette/Roulette'
+import Roulette from './pages/Game/Roulette/Roulette'
 import Navbar from './Navbar/Navbar';
 import Inventory from './pages/Inventory/Inventory';
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { useStyles } from "../pages/Roulette/Roulette.styles";
+import { useStyles } from "./Roulette/Roulette.styles";
 
 const GameCard = ({ poke, selected }) => {
   const classes = useStyles();

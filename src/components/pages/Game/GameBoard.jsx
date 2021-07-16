@@ -1,6 +1,6 @@
 import React from "react";
 import GameCard from "./GameCard";
-import { useStyles } from "../pages/Roulette/Roulette.styles";
+import { useStyles } from "./Roulette/Roulette.styles";
 
 //A geracao das Gamecards na mão é apenas mockup
 const GameBoard = ({ pokes, selected }) => {

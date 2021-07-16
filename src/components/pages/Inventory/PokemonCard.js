@@ -149,9 +149,9 @@ export default function PokemonCard({ pokemon }) {
             </Paper>
             <Modal open={open} onClose={handleClose} >
                 <Paper className={classes.modalPaper}>
-                    <div className={classes.pokemonImageWrapper}>
+                    <Container className={classes.pokemonImageWrapper}>
                         <img src={pokemon?.species?.img} className={classes.pokemonImage} />
-                    </div>
+                    </Container>
                     <h2 className={classes.pokemonName}>{pokemon?.name}</h2>
                     <table>
                         <tr>

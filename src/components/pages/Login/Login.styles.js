@@ -48,12 +48,10 @@ export const useStyles = makeStyles((theme) => {
         },
         modalPaper: {
             position: 'absolute',
-            width: 800,
-            height: 600,
             backgroundColor: theme.palette.background.paper,
             border: '2px solid #000',
             boxShadow: theme.shadows[5],
-            padding: theme.spacing(5, 10, 10),
+            padding: theme.spacing(5, 10, 6),
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
@@ -68,22 +66,26 @@ export const useStyles = makeStyles((theme) => {
             color: 'white',
             height: 48,
             padding: '0 30px',
-            margin: '50px',
+            marginTop: 10,
         },
         Icon: {
-            position: 'absolute',
             top: '1%',
             left: '4%',
-            width: 90,
-            height: 90,
+            width: 40,
+            height: 40,
+            display: 'inline',
+            marginRight: '1rem'
         },
         perfilTitle: {
             color: theme.palette.primary.main,
-            fontFamily: 'Pokemon'   
+            fontFamily: 'Pokemon',
+            display: 'inline'   
         },
         closeSpace: {
             margin: '0px',
-            padding: '2px'
+            marginTop: "5px",
+            padding: '2px',
+            maxWidth: '250px'
         },
         link: {
             textDecoration: 'none',

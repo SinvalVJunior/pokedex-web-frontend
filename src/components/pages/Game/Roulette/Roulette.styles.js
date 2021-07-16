@@ -5,29 +5,34 @@ export const useStyles = makeStyles((theme) => {
         board: {
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "center"
+            justifyContent: "center",
+            maxWidth: '100%'
         },
         gameCard: {
-            width: "200px",
-            height: "300px",
+            width: '20%',
+            maxWidth: '200px',
+            height: "200px",
+            maxHeight: "300px",
             borderRadius: "10px",
             border: "5px solid black",
             position: "relative",
             display: "grid",
-            gridTemplateColumns: "25px auto 25px",
-            gridTemplateRows: "30px 150px auto",
-            margin: "30px"
+            margin: "30px",
+            justifyContent: "center"
         },
         selectedGameCard:{
             border: "5px solid limeGreen"
         },
         gameCardImage: {
-            width: "150px",
-            height: "150px",
+            width: "100px",
+            height: "100px",
             maxWidth: "100%",
             maxHeight: "100%",
             gridColumn: "2/3",
-            gridRow: "2/3"
+            gridRow: "2/3",
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto'
         },
         gameCardText: {
             gridColumn: "2/3",
@@ -46,7 +51,8 @@ export const useStyles = makeStyles((theme) => {
             display: "block",
             marginLeft: "auto",
             marginRight: "auto",
-            marginTop: "25px"
+            marginTop: "25px",
+            borderRadius: '10px'
         }
     }
 });

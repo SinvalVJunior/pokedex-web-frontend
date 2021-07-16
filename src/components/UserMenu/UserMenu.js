@@ -101,7 +101,7 @@ export default function UserMenu() {
                     >
                         {!open ? <AiIcons.AiOutlineArrowDown /> : <AiIcons.AiOutlineArrowUp />} Welcome, {user?.name}!
                     </Button>
-                    <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                    <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal className={classes.menuUserContainer}>
                         {({ TransitionProps, placement }) => (
                             <Grow
                                 {...TransitionProps}

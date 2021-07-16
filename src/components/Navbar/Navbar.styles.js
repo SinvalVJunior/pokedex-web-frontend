@@ -23,7 +23,8 @@ export const useStyles = makeStyles((theme) => {
             position: 'fixed',
             top: '0',
             left: '-100%',
-            transition: '850ms'
+            transition: '850ms',
+            zIndex: 10
         },
         navMenuActive: {
             left: '0',

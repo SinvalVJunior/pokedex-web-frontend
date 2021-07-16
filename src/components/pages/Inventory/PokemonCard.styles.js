@@ -104,7 +104,9 @@ export const useStyles = makeStyles((theme) => {
         pokemonImageWrapper: {
             backgroundImage: `url(${Florest})`,
             backgroundRepeat: 'no-repeat',
-            backgroundSize: '100%'
+            backgroundSize: '100%',
+            paddingBottom: 10,
+            paddingTop: 5
         },
         pokemonImage: {
             display: 'block',

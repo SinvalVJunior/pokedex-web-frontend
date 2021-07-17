@@ -60,7 +60,7 @@ function Navbar() {
                                 <AiIcons.AiOutlineClose />
                             </Link>
                         </li>
-                        {user?.userId ? userLoggedMenu : userNotLoggedMenu}
+                        {user?.email ? userLoggedMenu : userNotLoggedMenu}
                     </ul>
                 </nav>
             </IconContext.Provider>

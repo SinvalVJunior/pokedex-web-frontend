@@ -88,11 +88,10 @@ export const useStyles = makeStyles((theme) => {
             maxWidth: '250px'
         },
         link: {
-            textDecoration: 'none',
             color:'red',
             "&:hover":{
-                color:'blue',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                backgroundColor: "#fff"
             },
             "&:active":{
                 color:'black',

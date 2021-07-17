@@ -18,11 +18,12 @@ export const postLogin = async (email, password) => {
   try {
     const response = await axios.post(`${backendUrl}/login`, { email: email, password: password }).catch(err => err.response);
 
-    if(response.status === 200) return response.data;
-    else throw new Error("Somthing went wrong when trying to login.");
+    if(response.status === 200) return {...response.data, error: false};
+    else throw new Error(response.data?.error);
   } catch (err) {
-    alert(err)
-  }
+    alert(err);
+    return { error: true };
+  } 
 }
 
 export const getInventory = async (userId) => {

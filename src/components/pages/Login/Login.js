@@ -19,8 +19,9 @@ export default function LoginPage() {
     const [username, setUserName] = useState('');
 
     const login = async () => {
-        const { token, user } = await postLogin(email, password);
-        if (token) {
+        const { token, user, error } = await postLogin(email, password);
+
+        if (!error) {
             const userData = JSON.stringify(user);
             localStorage.setItem('token', token);
             localStorage.setItem('user', userData);
@@ -68,7 +69,7 @@ export default function LoginPage() {
                             onChange={(value) => { setPassword(value.target.value) }}
 
                         />
-                        <a onClick={handleEdit} className={classes.link}>Create your account</a>
+                        <Button onClick={handleEdit} className={classes.link}>Create your account</Button>
                     </CardContent>
                     <CardActions className={classes.buttonWrapper}>
                         <Button variant='contained' classes={{

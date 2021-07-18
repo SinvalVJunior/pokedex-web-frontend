@@ -79,7 +79,7 @@ export default function UserMenu() {
     return (
         <>
         <div>
-            {!user?.userId ?
+            {!user?.email ?
                 <Link to='/login' className={classes.userLogo}>
                     <FaIcons.FaUser />
                     <Typography variant='caption' className={classes.menuUserNotLogged} >
@@ -111,7 +111,7 @@ export default function UserMenu() {
                                     <Container>
                                         <Typography variant='caption' className={classes.menuUserData} >
                                             <ul className={classes.listData}>
-                                                <li>username: {user?.username}</li>
+                                                <li>name: {user?.name}</li>
                                                 <li>email: {user?.email}</li>
                                             </ul>
                                         </Typography>

@@ -2,6 +2,8 @@ import React from "react";
 import GameBoard from "../../Game/GameBoard";
 import { useStyles } from "./Roulette.styles";
 import { useState, useEffect, useRef } from "react";
+import { getPokemons } from '../../../../clients/backend';
+
 
 function useInterval(callback, delay) {
     const savedCallback = useRef();
@@ -24,34 +26,7 @@ function useInterval(callback, delay) {
   }
 
 const Roulette = () => {
-  const pokes = [
-    {
-      src: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif",
-      name: "Pikachu",
-    },
-    {
-      src: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif",
-      name: "Bulbassauro",
-    },
-    {
-      src: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/7.gif",
-      name: "Squirtle",
-    },
-    {
-      src: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif",
-      name: "Charmander",
-    },
-    {
-      src: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/16.gif",
-      name: "Pidgey",
-    },
-    {
-      src: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/19.gif",
-      name: "Rattata",
-    },
-  ];
-
-
+  const [pokemons, setPokemons] = useState({ error: true });
   const [selected, setSelected] = useState([
     true,
     false,
@@ -64,7 +39,8 @@ const Roulette = () => {
   const [counter, setCounter] = useState(0);
   const [stop, setStop] = useState(true);
   const [time, setTime] = useState(50);
-
+  const classes = useStyles();
+  const numberOfPokemons = 6;
   
   const playGame = () => {
     const variation =  Math.floor(Math.random()*12);
@@ -85,13 +61,19 @@ const Roulette = () => {
   };
 
   useInterval(add, stop?null:time);
-  const classes = useStyles();
+  
+  useEffect(() => {
+    const updatePokemons = async () => {
+      setPokemons(await getPokemons(numberOfPokemons));
+    }
+    updatePokemons();
+  }, []);
 
   return (
     <>
       <header></header>
       <main>
-        <GameBoard selected={selected} pokes={pokes} />
+        { !pokemons.error ? <GameBoard selected={selected} pokemons={pokemons} /> : <></> }
         <button
           className={classes.playButton}
           onClick={() => {

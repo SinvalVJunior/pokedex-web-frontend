@@ -74,3 +74,16 @@ export const getInventory = async (userId) => {
 export const editUser = (email,name,username,password) =>{
     
 }
+
+export const getPokemons = async (numberOfPokemons) => {
+
+  try {
+    const response = await axios.get(`${backendUrl}/pokemon?numberOfPokemons=${numberOfPokemons}`).catch(err => err.response);
+
+    if(response.status === 200) return {...response.data, error: false};
+    else throw new Error(response.data?.error);
+  } catch (err) {
+    alert(err);
+    return { error: true };
+  } 
+}

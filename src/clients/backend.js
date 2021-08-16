@@ -47,6 +47,19 @@ export const getPokemons = async (numberOfPokemons) => {
   try {
     const response = await axios.get(`${backendUrl}/pokemon?numberOfPokemons=${numberOfPokemons}`).catch(err => err.response);
 
+    if(response.status === 200) return response.data;
+    else throw new Error(response.data?.error);
+  } catch (err) {
+    alert(err);
+    return { error: true };
+  } 
+}
+
+export const addPokemonToInventory = async ( userId, pokemonId) => {
+
+try {
+    const response = await axios.post(`${backendUrl}/inventory`, { userId, pokemonId }).catch(err => err.response);
+
     if(response.status === 200) return {...response.data, error: false};
     else throw new Error(response.data?.error);
   } catch (err) {

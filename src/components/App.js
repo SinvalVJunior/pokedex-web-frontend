@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme';
@@ -7,10 +7,25 @@ import LoginPage from './pages/Login/Login';
 import Roulette from './pages/Game/Roulette/Roulette'
 import Navbar from './Navbar/Navbar';
 import Inventory from './pages/Inventory/Inventory';
+import * as HomeActions from './pages/Home/home.actions';
+import { useHomeDispatch } from './pages/Home/home.context';
+import Loading from './Loading/Loading';
 
 function App() {
+
+  const dispatch = useHomeDispatch();
+
+  useEffect(() => {
+    const userString = localStorage.getItem("user");
+    if(userString) {
+      const userObj = JSON.parse(userString);
+      dispatch(HomeActions.setUser(userObj));
+    }
+  })
+
   return (
     <ThemeProvider theme={theme}>
+      <Loading />
       <BrowserRouter>
         <Navbar />
         <Switch>

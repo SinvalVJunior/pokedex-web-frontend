@@ -39,17 +39,17 @@ export default function PokemonCard({ pokemon }) {
                     <li className={classes.list} key={0}>
                         {toolip("Attack")}
                         <Gicons.GiBroadsword color="red" className={classes.statLogo} />
-                        {pokemon?.stats?.attack}
+                        {pokemon?.attack}
                     </li>
                     <li className={classes.list} key={1}>
                         {toolip("Special Attack")}
                         <Bscons.BsLightningFill color="orange" className={classes.statLogo} />
-                        {pokemon?.stats?.specialAttack}
+                        {pokemon?.specialAttack}
                     </li>
                     <li className={classes.list} key={2}>
                         {toolip("Speed")}
                         <Gicons.GiWalkingBoot color="green" className={classes.statLogo} />
-                        {pokemon?.stats?.speed}
+                        {pokemon?.speed}
                     </li>
                 </ul>
             </Grid>
@@ -58,17 +58,17 @@ export default function PokemonCard({ pokemon }) {
                     <li className={classes.list} key={3}>
                         {toolip("HP")}
                         <Gicons.GiHeartPlus color="pink" className={classes.statLogo} />
-                        {pokemon?.stats?.hp}
+                        {pokemon?.hp}
                     </li>
                     <li className={classes.list} key={4}>
-                        {toolip("Defence")}
+                        {toolip("Defense")}
                         <Bscons.BsShieldShaded color="blue" className={classes.statLogo} />
-                        {pokemon?.stats?.defence}
+                        {pokemon?.defense}
                     </li>
                     <li className={classes.list} key={5}>
-                        {toolip("Special Defence")}
+                        {toolip("Special Defense")}
                         <Gicons.GiRosaShield color="purple" className={classes.statLogo} />
-                        {pokemon?.stats?.specialDefence}
+                        {pokemon?.specialDefense}
                     </li>
                 </ul>
             </Grid>
@@ -83,23 +83,23 @@ export default function PokemonCard({ pokemon }) {
                         <div className={classes.speciesList}>
                             {toolip("Habitat")}
                             <Gicons.GiPineTree color="green" className={classes.statLogo} />
-                            {pokemon?.species?.habitat}
+                            {pokemon?.habitat}
                         </div>
                     </li>
                     <li className={classes.speciesList} key={1}>
                         {toolip("Color")}
-                        <Iocons.IoIosColorPalette color={pokemon?.species?.color} className={classes.statLogo} />
-                        {pokemon?.species?.color}
+                        <Iocons.IoIosColorPalette color={pokemon?.color} className={classes.statLogo} />
+                        {pokemon?.color}
                     </li>
                     <li className={classes.speciesList} key={2}>
                         {toolip("Base Happiness")}
                         <Hicons.HiEmojiHappy color="#FFDC41" className={classes.statLogo} />
-                        {pokemon?.species?.baseHappiness}
+                        {pokemon?.baseHappiness}
                     </li>
                     <li className={classes.speciesList} key={3}>
                         {toolip("Shape")}
                         <Iocons.IoIosBody color="black" className={classes.statLogo} />
-                        {pokemon?.species?.shape}
+                        {pokemon?.shape}
                     </li>
 
                 </ul>
@@ -109,22 +109,22 @@ export default function PokemonCard({ pokemon }) {
                     <li className={classes.speciesList} key={4}>
                         {toolip("Evolves To")}
                         <AiIcons.AiOutlineArrowUp color="red" className={classes.statLogo} />
-                        {pokemon?.species?.evolvesTo !== "" ? pokemon?.species?.evolvesTo : "None"}
+                        {pokemon?.evolvesTo !== "" ? pokemon?.evolvesTo : "None"}
                     </li>
                     <li className={classes.speciesList} key={5}>
                         {toolip("Evolves From")}
                         <AiIcons.AiOutlineArrowDown color="red" className={classes.statLogo} />
-                        {pokemon?.species?.evolvesFrom !== "" ? pokemon?.species?.evolvesFrom : "None"}
+                        {pokemon?.evolvesFrom !== "" ? pokemon?.evolvesFrom : "None"}
                     </li>
                     <li className={classes.speciesList} key={6}>
                         {toolip("Mythical")}
                         <FaIcons.FaDragon color="blue" className={classes.statLogo} />
-                        {pokemon?.species?.isMythical ? "Yes" : "No"}
+                        {pokemon?.isMythical ? "Yes" : "No"}
                     </li>
                     <li className={classes.speciesList} key={7}>
                         {toolip("Legendary")}
                         <Gicons.GiDragonBreath color="orange" className={classes.statLogo} />
-                        {pokemon?.species?.isLegendary ? "Yes" : "No"}
+                        {pokemon?.isLegendary ? "Yes" : "No"}
                     </li>
                 </ul>
             </Grid>
@@ -134,7 +134,7 @@ export default function PokemonCard({ pokemon }) {
     return (
         <>
             <Paper className={classes.root} elevation={elevation} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-                <img src={pokemon?.imgUrl} className={classes.image} alt="Pokemon" />
+                <img src={pokemon?.gif} className={classes.image} alt="Pokemon" />
                 <Container className={classes.container}>
                     <Typography className={classes.pokemonName} >{pokemon?.name}</Typography>
                     <Divider />
@@ -150,7 +150,7 @@ export default function PokemonCard({ pokemon }) {
             <Modal open={open} onClose={handleClose} >
                 <Paper className={classes.modalPaper}>
                     <Container className={classes.pokemonImageWrapper}>
-                        <img src={pokemon?.species?.img} className={classes.pokemonImage} alt=""/>
+                        <img src={pokemon?.image} className={classes.pokemonImage} alt=""/>
                     </Container>
                     <h2 className={classes.pokemonName}>{pokemon?.name}</h2>
                     <table>
@@ -171,7 +171,7 @@ export default function PokemonCard({ pokemon }) {
                     <table className={classes.curiosityTable}>
                         <tr>
                             <td className={classes.firstColumn}>Curiosity</td>
-                            <td className={classes.curiosityText}>{pokemon?.species?.curiosity}</td>
+                            <td className={classes.curiosityText}>{pokemon?.curiosity}</td>
                         </tr>
                     </table>
 

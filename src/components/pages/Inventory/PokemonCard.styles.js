@@ -111,7 +111,8 @@ export const useStyles = makeStyles((theme) => {
         pokemonImage: {
             display: 'block',
             marginRight: 'auto',
-            marginLeft: 'auto'
+            marginLeft: 'auto',
+            height: 190
         },
         firstColumn: {
             fontFamily: 'Pokemon',

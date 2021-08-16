@@ -13,10 +13,10 @@ export default function Inventory() {
 
     useEffect(() => {
         const updateInventory = async () => {
-            setInventory(await getInventory(state?.user?.userId));
+            setInventory(await getInventory(state?.user?.id));
         };
         updateInventory();
-    }, [state?.user?.userId]);
+    }, [state?.user?.id]);
 
 
     return (

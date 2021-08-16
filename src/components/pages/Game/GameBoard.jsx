@@ -8,12 +8,7 @@ const GameBoard = ({ pokemons, selected }) => {
 
   return (
     <div className={classes.board}>
-      <GameCard pokemon={pokemons[0]} selected={selected[0]}/>
-      <GameCard pokemon={pokemons[1]} selected={selected[1]}/>
-      <GameCard pokemon={pokemons[2]} selected={selected[2]}/>
-      <GameCard pokemon={pokemons[3]} selected={selected[3]}/>
-      <GameCard pokemon={pokemons[4]} selected={selected[4]}/>
-      <GameCard pokemon={pokemons[5]} selected={selected[5]}/>
+      { pokemons ? pokemons.map((pokemon, index) => ( <GameCard pokemon={pokemon} selected={selected[index]}/> )) : <></> }
     </div>
   );
 };

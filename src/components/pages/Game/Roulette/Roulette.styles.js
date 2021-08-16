@@ -21,7 +21,7 @@ export const useStyles = makeStyles((theme) => {
             justifyContent: "center"
         },
         selectedGameCard:{
-            border: "5px solid limeGreen"
+            border: `5px solid ${theme.palette.info.main}`
         },
         gameCardImage: {
             width: "100px",

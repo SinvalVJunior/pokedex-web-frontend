@@ -3,4 +3,11 @@ export function setUser(value) {
       type: 'setUser',
       value,
     };
-  }
+}
+
+export function setLoading(value) {
+  return {
+    type: 'setLoading',
+    value,
+  };
+}

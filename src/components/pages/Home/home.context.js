@@ -8,7 +8,9 @@ const homeReducer = (state, action) => {
         case 'setUser': {
             return { ...state, user: action.value };
         }
-
+        case 'setLoading': {
+          return { ...state, loading: action.value };
+        }
         default:
             throw new Error(`Action ${action.type} not found.`);
 
@@ -20,6 +22,7 @@ const homeReducer = (state, action) => {
 export const HomeProvider = ({ children }) => {
     const [state, dispatch] = React.useReducer(homeReducer, {
       user: undefined,
+      loading: false
     });
   
     return (

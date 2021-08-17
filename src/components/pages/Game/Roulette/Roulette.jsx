@@ -107,7 +107,7 @@ const Roulette = () => {
     if(stop && addPokemon) {
       callAddPokemon();
     }
-  },[ stop, addPokemon, state?.user, pokemons, selected, dispach, selectedPokemon, setSelectedPokemon ]);
+  },[ stop, addPokemon, state?.user, pokemons, selected, dispach ]);
 
   return (
     <>

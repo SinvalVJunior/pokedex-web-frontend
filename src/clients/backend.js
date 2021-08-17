@@ -1,5 +1,5 @@
 const axios = require('axios');
-const backendUrl = "http://localhost:8080/api";
+const backendUrl = process.env.REACT_APP_API_URL;
 
 
 export const getUserInfo = async () => {

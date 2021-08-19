@@ -99,7 +99,13 @@ export const useStyles = makeStyles((theme) => {
             padding: theme.spacing(2, 4, 3),
             top: '50%',
             left: '50%',
-            transform: 'translate(-50%, -50%)' 
+            transform: 'translate(-50%, -50%)',
+            [theme.breakpoints.down('sm')]: {
+                width: 200,
+                fontSize: 10,
+                padding: theme.spacing(2, 3, 2),
+
+            }
         },
         pokemonImageWrapper: {
             backgroundImage: `url(${Florest})`,
@@ -113,12 +119,19 @@ export const useStyles = makeStyles((theme) => {
             marginRight: 'auto',
             marginLeft: 'auto',
             height: 190,
-            maxWidth: 350
+            maxWidth: 350,
+            [theme.breakpoints.down('sm')]: {
+                height: 80,
+                maxWidth: 175
+            }
         },
         firstColumn: {
             fontFamily: 'Pokemon',
             color: theme.palette.info.light,
-            width: 150
+            width: 150,
+            [theme.breakpoints.down('sm')]: {
+                width: 80,
+            }
         },
         curiosityTable: {
             marginTop: 10

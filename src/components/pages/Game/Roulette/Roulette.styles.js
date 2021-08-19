@@ -18,7 +18,11 @@ export const useStyles = makeStyles((theme) => {
             position: "relative",
             display: "grid",
             margin: "30px",
-            justifyContent: "center"
+            justifyContent: "center",
+            [theme.breakpoints.down('sm')]: {
+                margin: "10px",
+                height: "150px"
+            }
         },
         selectedGameCard:{
             border: `5px solid ${theme.palette.info.main}`
@@ -32,13 +36,20 @@ export const useStyles = makeStyles((theme) => {
             gridRow: "2/3",
             display: 'block',
             marginLeft: 'auto',
-            marginRight: 'auto'
+            marginRight: 'auto',
+            [theme.breakpoints.down('sm')]: {
+                width: "50px",
+                height: "60px",
+            }
         },
         gameCardText: {
             gridColumn: "2/3",
             gridRow: "3/4",
             alignSelf: "center",
-            justifySelf: "center"
+            justifySelf: "center",
+            [theme.breakpoints.down('sm')]: {
+                fontSize: 10
+            }
         },
         playButton: {
             fontFamily: "Pokemon",

@@ -21,7 +21,10 @@ export const useStyles = makeStyles((theme) => {
             zIndex: 15,
             color: theme.palette.primary.main,
             top: "40%",
-            left: "50%"
+            left: "50%",
+            [theme.breakpoints.down('md')]: {
+                fontSize: 38
+            }
 
         },
         centralizeAbsoluteElement: {

@@ -9,6 +9,9 @@ export const useStyles = makeStyles((theme) => {
             margin: `${theme.spacing(0)} auto`,
             alignContent: 'center',
             flexDirection: 'column',
+            [theme.breakpoints.down('sm')]: {
+                width: 300,
+            }
         },
         fieldWrapper: {
             alignContent: 'center',

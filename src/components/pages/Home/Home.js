@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { getUserInfo } from '../../../clients/backend';
 import { useStyles } from './home.styles';
 import { useTheme } from '@material-ui/core';
 import { CgPokemon } from 'react-icons/cg';
@@ -10,25 +9,19 @@ import AllPokemons from '../../../assets/images/all-pokemons.png';
 import transition from '../../../assets/images/transition.svg';
 import transitionEnd from '../../../assets/images/transition-end.svg';
 
+import { useHomeState } from '../../pages/Home/home.context';
 
 export default function Home() {
-    const [userInfo, setUserInfo] = useState('');
 
     const classes = useStyles();
     const theme = useTheme();
+    const state = useHomeState();
 
-    const getInfo = async () => {
-        const user = await getUserInfo();
-        return user?.userInfo;
-    }
+    const [user, setUser] = useState({ name: "" });
 
     useEffect(() => {
-        const getPageData = async () => {
-            const info = await getInfo();
-            setUserInfo(info);
-        }
-        getPageData();
-    }, []);
+        setUser(state?.user);
+    }, [state?.user]);
 
 
     return <>
@@ -39,7 +32,7 @@ export default function Home() {
                     <h1 className={classes.titleText}>Welcome to <p className={classes.pokedexWebText}>PokedéxWeb</p></h1>
                 </div>
                 <p>Glad to see you here! Let's not waste time 'cause we <p className={classes.pokemonText}>Got catch 'em all</p> !</p>
-                <p><p className={classes.pokemonText}>I choose you</p>, "{userInfo?.name}" to complete this task.</p>
+                <p><p className={classes.pokemonText}>I choose you</p> {user?.name} to complete this task.</p>
                 <p>Before we start, let's take a tour in what you can do here.</p>
                 <table className={classes.table}>
                     <tr className={classes.tableLine}>

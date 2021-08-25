@@ -26,7 +26,7 @@ export default function LoginPage() {
             localStorage.setItem('token', token);
             localStorage.setItem('user', userData);
             dispatch(HomeActions.setUser(user));
-            history.push('/home');
+            history.push('/');
         }
     }
     const handleEdit = () => {

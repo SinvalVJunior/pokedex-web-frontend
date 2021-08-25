@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getUserInfo } from '../../../clients/backend';
 import { useStyles } from './home.styles';
-import { Container, Grid, useMediaQuery, useTheme } from '@material-ui/core';
+import { useTheme } from '@material-ui/core';
 import { CgPokemon } from 'react-icons/cg';
 import { GoMarkGithub } from 'react-icons/go';
-import { TiArrowForward } from 'react-icons/ti';
+import { ImArrowRight } from 'react-icons/im';
 
 import AllPokemons from '../../../assets/images/all-pokemons.png';
 import transition from '../../../assets/images/transition.svg';
@@ -44,12 +44,12 @@ export default function Home() {
                 <table className={classes.table}>
                     <tr className={classes.tableLine}>
                         <td className={classes.tableCell}><p className={classes.pokemonText}>Play</p></td>
-                        <td className={classes.tableCell}><p className={classes.pokemonText}><TiArrowForward size={25} /></p></td>
+                        <td className={classes.tableCell}><p className={classes.pokemonText}><ImArrowRight size={25} /></p></td>
                         <td className={classes.secondColumn}>Here you can count with your luck to get the best Pokémons. Play the roulette and good luck catching them!</td>
                     </tr>
                     <tr className={classes.tableLine}>
                         <td className={classes.tableCell}><p className={classes.pokemonText}>Inventory</p></td>
-                        <td className={classes.tableCell}><p className={classes.pokemonText}><TiArrowForward size={25} /></p></td>
+                        <td className={classes.tableCell}><p className={classes.pokemonText}><ImArrowRight size={25} /></p></td>
                         <td className={classes.secondColumn}>Where you can find the Pokémons you catch, see their stats and learn more about their species!</td>
                     </tr>
                 </table>

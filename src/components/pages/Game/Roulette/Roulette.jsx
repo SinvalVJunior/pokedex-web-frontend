@@ -1,6 +1,6 @@
 import React from "react";
 import GameBoard from "../../Game/GameBoard";
-import ConfiramationModal from "../../../ConfirmationModal/ConfirmationModal";
+import ConfirmationModal from "../../../ConfirmationModal/ConfirmationModal";
 import { useStyles } from "./Roulette.styles";
 import { useState, useEffect, useRef } from "react";
 import { getPokemons, addPokemonToInventory } from '../../../../clients/backend';
@@ -125,7 +125,7 @@ const Roulette = () => {
             </button>
           }
         </main>
-        <ConfiramationModal 
+        <ConfirmationModal 
           title="Congratulations!" 
           message={`"${capitalize(selectedPokemon?.name)}" was added to your inventory!\nCheck your inventory to see more about this Pokémon.`} 
           open={openModal} confirmButtonLabel="Gotcha!" 

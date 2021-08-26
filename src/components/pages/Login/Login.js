@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Box, CardContent, Card, Button, CardActions, CardHeader, TextField, Paper, Modal, InputLabel, Container } from '@material-ui/core';
 import { useStyles } from './Login.styles';
-import { postLogin } from '../../../clients/backend';
+import { postLogin, postLoginFacebook } from '../../../clients/backend';
 import { useHistory } from 'react-router-dom';
+import FacebookLogin from 'react-facebook-login';
+
 import { useHomeDispatch } from '../Home/home.context';
 import * as HomeActions from '../Home/home.actions';
 import Pokeball from '../../../assets/images/pokeball.png';
@@ -22,13 +24,27 @@ export default function LoginPage() {
         const { token, user, error } = await postLogin(email, password);
 
         if (!error) {
-            const userData = JSON.stringify(user);
-            localStorage.setItem('token', token);
-            localStorage.setItem('user', userData);
-            dispatch(HomeActions.setUser(user));
-            history.push('/');
+            completeLogin(token, user)
         }
     }
+
+    const loginFacebook = async (response) => {
+        const { email, name, picture } = response;
+        const { token, user, error } = await postLoginFacebook(email, name, picture);
+
+        if (!error) {
+            completeLogin(token, user)
+        }
+    }
+
+    const completeLogin = (token, user) => {
+        const userData = JSON.stringify(user);
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', userData);
+        dispatch(HomeActions.setUser(user));
+        history.push('/');
+    }
+
     const handleEdit = () => {
         setOpenModal(true)
     }
@@ -40,11 +56,12 @@ export default function LoginPage() {
         setOpenModal(false)
     }
 
+
     return (
         <form onSubmit={async (e) => { e.preventDefault(); login(); }} >
             <Box className={classes.root}>
                 <Card className={classes.card}>
-                    <CardHeader className={classes.header} title='Welcome to Pokédex' classes={{
+                    <CardHeader className={classes.header} title='Welcome to PokédexWeb' classes={{
                         title: classes.title
                     }} />
                     <CardContent>
@@ -72,12 +89,21 @@ export default function LoginPage() {
                         <Button onClick={handleEdit} className={classes.link}>Create your account</Button>
                     </CardContent>
                     <CardActions className={classes.buttonWrapper}>
+                        <div>
                         <Button variant='contained' classes={{
                             root: classes.button,
                             label: classes.buttonLabel
                         }} type="submit">
                             login
                         </Button>
+                        </div>
+                        <FacebookLogin
+                            appId={process.env.REACT_APP_FACEBOOK_APP_ID}
+                            fields="name,email,picture"
+                            callback={loginFacebook}
+                            textButton="Continue with Facebook"
+                            size="medium"
+                            disableMobileRedirect={true} />
                     </CardActions>
                 </Card>
             </Box>

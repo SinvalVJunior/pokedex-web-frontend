@@ -19,6 +19,8 @@ export const useStyles = makeStyles((theme) => {
             flexDirection: 'column',
         },
         buttonWrapper: {
+            display: 'flex',
+            flexDirection: 'column',
             justifyContent: 'center',
             component: 'div',
             margin: theme.spacing(2),
@@ -30,6 +32,7 @@ export const useStyles = makeStyles((theme) => {
             color: 'white',
             height: 48,
             padding: '0 30px',
+            margin: 10,
             "&:hover": {
                 backgroundColor: theme.palette.primary.main
             }

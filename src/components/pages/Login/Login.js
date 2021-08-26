@@ -3,6 +3,8 @@ import { Box, CardContent, Card, Button, CardActions, CardHeader, TextField, Pap
 import { useStyles } from './Login.styles';
 import { postLogin } from '../../../clients/backend';
 import { useHistory } from 'react-router-dom';
+import FacebookLogin from 'react-facebook-login';
+
 import { useHomeDispatch } from '../Home/home.context';
 import * as HomeActions from '../Home/home.actions';
 import Pokeball from '../../../assets/images/pokeball.png';
@@ -38,6 +40,10 @@ export default function LoginPage() {
     }
     const closeEdit = () => {
         setOpenModal(false)
+    }
+
+    const responseFacebook = (response) => {
+        console.log(response);
     }
 
     return (
@@ -78,6 +84,10 @@ export default function LoginPage() {
                         }} type="submit">
                             login
                         </Button>
+                        <FacebookLogin
+                            appId="806789110017511"
+                            fields="name,email,picture"
+                            callback={responseFacebook} />
                     </CardActions>
                 </Card>
             </Box>

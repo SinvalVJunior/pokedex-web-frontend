@@ -102,7 +102,8 @@ export default function LoginPage() {
                             fields="name,email,picture"
                             callback={loginFacebook}
                             textButton="Continue with Facebook"
-                            size="medium" />
+                            size="medium"
+                            disableMobileRedirect={true} />
                     </CardActions>
                 </Card>
             </Box>

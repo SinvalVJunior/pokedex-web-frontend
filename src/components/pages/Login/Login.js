@@ -98,7 +98,7 @@ export default function LoginPage() {
                         </Button>
                         </div>
                         <FacebookLogin
-                            appId="806789110017511"
+                            appId={process.env.REACT_APP_FACEBOOK_APP_ID}
                             fields="name,email,picture"
                             callback={loginFacebook}
                             textButton="Continue with Facebook"

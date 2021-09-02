@@ -8,7 +8,8 @@ import FacebookLogin from 'react-facebook-login';
 import { useHomeDispatch } from '../Home/home.context';
 import * as HomeActions from '../Home/home.actions';
 import Pokeball from '../../../assets/images/pokeball.png';
-import { editUser } from '../../../clients/backend';
+import { createUser } from '../../../clients/backend';
+import ConfirmationModal from '../../ConfirmationModal/ConfirmationModal';
 
 export default function LoginPage() {
     const dispatch = useHomeDispatch();
@@ -17,8 +18,8 @@ export default function LoginPage() {
     const [password, setPassword] = useState('');
     const history = useHistory();
     const [openModal, setOpenModal] = useState(false);
+    const [openCreateAccModal, setOpenCreateAccModal] = useState(false);
     const [name, setName] = useState('');
-    const [username, setUserName] = useState('');
 
     const login = async () => {
         const { token, user, error } = await postLogin(email, password);
@@ -50,7 +51,8 @@ export default function LoginPage() {
     }
     const submitForm = () => {
         closeEdit();
-        editUser(email, name, username, password);
+        createUser(email, name, password);
+        setOpenCreateAccModal(true);
     }
     const closeEdit = () => {
         setOpenModal(false)
@@ -138,29 +140,6 @@ export default function LoginPage() {
                             margin='normal'
                             onChange={(value) => { setEmail(value.target.value) }}
                         />
-                        <InputLabel >UserName:</InputLabel>
-                        <TextField
-                            className={classes.closeSpace}
-                            fullWidth
-                            required
-                            type='string'
-                            name='Nome de usuario'
-                            size="small"
-                            variant='outlined'
-                            margin='normal'
-                            onChange={(value) => { setUserName(value.target.value) }}
-                        />
-                        <InputLabel className={classes.closeSpace}>City:</InputLabel>
-                        <TextField
-                            className={classes.closeSpace}
-                            fullWidth
-                            required
-                            type='string'
-                            size="small"
-                            name='Cidade'
-                            variant='outlined'
-                            margin='normal'
-                        />
                         <InputLabel className={classes.closeSpace}>Password:</InputLabel>
                         <TextField
                             className={classes.closeSpace}
@@ -172,18 +151,7 @@ export default function LoginPage() {
                             variant='outlined'
                             margin='normal'
                             onChange={(value) => { setPassword(value.target.value) }}
-                        />
-                        <InputLabel className={classes.closeSpace}>Birth date:</InputLabel>
-                        <TextField
-                            className={classes.closeSpace}
-                            fullWidth
-                            required
-                            type='date'
-                            name='data'
-                            size="small"
-                            variant='outlined'
-                            margin='normal'
-                        />
+                        />                
                         <Button variant='contained' onClick={submitForm} classes={{
                             root: classes.saveButton,
                             label: classes.buttonLabel,
@@ -193,6 +161,12 @@ export default function LoginPage() {
                     </Container>
                 </Paper>
             </Modal>
+            <ConfirmationModal 
+                title="Success"
+                message=''
+                open={openCreateAccModal} confirmButtonLabel="Gotcha!" 
+                handleConfirm={() => {setOpenCreateAccModal(false)}} 
+            />
         </form>
 
     );

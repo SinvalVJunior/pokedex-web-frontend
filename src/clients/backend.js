@@ -1,3 +1,4 @@
+
 const axios = require('axios');
 const backendUrl = process.env.REACT_APP_API_URL;
 
@@ -50,9 +51,30 @@ export const getInventory = async (userId) => {
   }
 };
 
-export const editUser = (email,name,username,password) =>{
-    
+export const createUser = async (email, name, password) =>{
+  try{
+    const response = await axios.post(`${backendUrl}/users`, { email: email, name: name, password: password }).catch(err => err.response);
+
+    if(response.status === 200) return {...response.data, error: false};
+    else throw new Error(response.data?.error);
+  }catch(err){
+    alert(err);
+    return { error: true };
+  }
 }
+
+export const editUser = async (userId,name) =>{
+  try{
+    const response = await axios.put(`${backendUrl}/users`, { userId: userId, name: name}).catch(err => err.response);
+
+    if(response.status === 200) return {...response.data, error: false};
+    else throw new Error(response.data?.error);
+  } catch (err){
+    alert(err);
+    return { error: true };
+  }
+}
+
 
 export const getPokemons = async (numberOfPokemons) => {
 

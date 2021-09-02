@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+import ConfirmationModal from '../ConfirmationModal/ConfirmationModal';
 import { Link, useHistory } from 'react-router-dom';
 import { Typography, Popper, Button, Grow, ClickAwayListener, MenuList, MenuItem, Paper, Container, TextField,Modal,InputLabel  } from '@material-ui/core';
 import { useStyles } from './UserMenu.styles.js';
@@ -17,11 +18,9 @@ export default function UserMenu() {
     const anchorRef = useRef(null);
     const history = useHistory();
     const [openModal, setOpenModal] = useState(false);
+    const [openEditModal, setOpenEditModal] = useState(false);
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [username, setUserName] = useState('');
 
     useEffect(() => {
         setUser(state?.user);
@@ -63,7 +62,16 @@ export default function UserMenu() {
     }
     const submitForm = () => {
         closeEdit();
-        editUser(email,name,username,password);
+        editUser(state?.user?.id, name).then((response) => {
+            if(response.error === false){
+                const newUser = {"email":response.email,"name":response.name,"id":response._id};
+                const userData = JSON.stringify(newUser)
+                localStorage.setItem('user', userData);
+                dispatch(HomeActions.setUser(newUser));
+                setOpenEditModal(true);
+            }                
+        });
+        setName('');
     }
 
     const handleLogout = () => {
@@ -140,6 +148,7 @@ export default function UserMenu() {
                     <TextField
                         className={classes.closeSpace}
                         fullWidth
+                        defaultValue={`${user?.name}`}
                         size="small"
                         required
                         type='string'
@@ -147,65 +156,7 @@ export default function UserMenu() {
                         variant='outlined'
                         margin='normal'
                         onChange={(value) => { setName(value.target.value) }}
-                    /> 
-                    <InputLabel className={classes.closeSpace}>Email:</InputLabel>  
-                    <TextField
-                        className={classes.closeSpace}
-                        required
-                        size="small"
-                        fullWidth
-                        type='email'
-                        name='email'
-                        variant='outlined'
-                        margin='normal'
-                        onChange={(value) => { setEmail(value.target.value) }}
-                    />
-                    <InputLabel >Username:</InputLabel>  
-                    <TextField
-                        className={classes.closeSpace}
-                        fullWidth
-                        required
-                        type='string'
-                        name='Nome de usuario'
-                        size="small"
-                        variant='outlined'
-                        margin='normal'
-                        onChange={(value) => { setUserName(value.target.value) }}
-                    /> 
-                    <InputLabel className={classes.closeSpace}>City:</InputLabel>  
-                    <TextField
-                        className={classes.closeSpace}
-                        fullWidth
-                        required
-                        type='string'
-                        size="small"
-                        name='Cidade'
-                        variant='outlined'
-                        margin='normal'
-                    /> 
-                    <InputLabel className={classes.closeSpace}>Password:</InputLabel>  
-                    <TextField
-                        className={classes.closeSpace}
-                        fullWidth
-                        required
-                        size="small"
-                        type='password'
-                        name='password'
-                        variant='outlined'
-                        margin='normal'
-                        onChange={(value) => { setPassword(value.target.value) }}
-                    />
-                    <InputLabel className={classes.closeSpace}>Birth date:</InputLabel>  
-                    <TextField
-                        className={classes.closeSpace}
-                        fullWidth
-                        required
-                        type='date'
-                        name='data'
-                        size="small"
-                        variant='outlined'
-                        margin='normal'
-                    />
+                    />  
                     <Button variant='contained' onClick={submitForm} classes={{
                             root: classes.saveButton,
                             label: classes.buttonLabel,
@@ -214,6 +165,12 @@ export default function UserMenu() {
                         </Button>
                 </Paper>        
             </Modal>
+        <ConfirmationModal
+          title="Success"
+          message=''
+          open={openEditModal} confirmButtonLabel="Gotcha!" 
+          handleConfirm={() => {setOpenEditModal(false)}} 
+        />
         </>
     );
 

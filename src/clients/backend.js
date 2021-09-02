@@ -1,4 +1,3 @@
-import { AccordionSummary } from '@material-ui/core';
 
 const axios = require('axios');
 const backendUrl = process.env.REACT_APP_API_URL;

@@ -4,7 +4,7 @@ import { useStyles } from './ConfirmationModal.styles';
 import { CgPokemon }  from 'react-icons/cg';
 
 
-const ConfirmationModal = ({ message, open, confirmButtonLabel, title, hasImage, handleConfirm }) => {
+const ConfirmationModal = ({ message, open, confirmButtonLabel, title, handleConfirm }) => {
 
     const classes = useStyles();
 

@@ -14,7 +14,6 @@ const getBasicHeader = () => ({
 
 export const getUserInfo = async () => {
   try {
-    console.log(getBasicHeader());
     const response = await axios.get(`${backendUrl}/users`, { headers: getBasicHeader() }).catch(err => err.response);
     return response.data;
   } catch (err) {

@@ -23,7 +23,7 @@ export const getUserInfo = async () => {
 
 export const postLogin = async (email, password) => {
   try {
-    const response = await axios.post(`${backendUrl}/login`, { email: email, password: password, headers: getBasicHeader() }).catch(err => err.response);
+    const response = await axios.post(`${backendUrl}/login`, { email: email, password: password }).catch(err => err.response);
 
     if(response.status === 200) return {...response.data, error: false};
     else throw new Error(response.data?.error);
@@ -35,7 +35,7 @@ export const postLogin = async (email, password) => {
 
 export const postLoginFacebook = async (email, name, picture) => {
   try {
-    const response = await axios.post(`${backendUrl}/login/facebook`, { email, name, picture, headers: getBasicHeader() }).catch(err => err.response);
+    const response = await axios.post(`${backendUrl}/login/facebook`, { email, name, picture }).catch(err => err.response);
 
     if(response.status === 200) return {...response.data, error: false};
     else throw new Error(response.data?.error);
@@ -68,7 +68,7 @@ export const createUser = async (email, name, password) =>{
 
 export const editUser = async (userId,name) =>{
   try{
-    const response = await axios.put(`${backendUrl}/users`, { userId: userId, name: name, headers: getBasicHeader()}).catch(err => err.response);
+    const response = await axios.put(`${backendUrl}/users`, { userId: userId, name: name}, {headers: getBasicHeader()}).catch(err => err.response);
 
     if(response.status === 200) return {...response.data, error: false};
     else throw new Error(response.data?.error);
@@ -95,7 +95,7 @@ export const getPokemons = async (numberOfPokemons) => {
 export const addPokemonToInventory = async ( userId, pokemonId) => {
 
 try {
-    const response = await axios.post(`${backendUrl}/inventory`, { userId, pokemonId, headers: getBasicHeader() }).catch(err => err.response);
+    const response = await axios.post(`${backendUrl}/inventory`, { userId, pokemonId }, {headers: getBasicHeader()}).catch(err => err.response);
 
     if(response.status === 200) return {...response.data, error: false};
     else throw new Error(response.data?.error);

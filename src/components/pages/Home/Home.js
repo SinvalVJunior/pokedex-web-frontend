@@ -55,7 +55,7 @@ export default function Home() {
                 <div className={classes.foot}>
                     <div className={classes.footElement}>
                         <CgPokemon size={50} color={theme.palette.info.light} />
-                        <p><p className={classes.pokemonText}>Release Notes: </p> v0.1-alpha</p>
+                        <p><p className={classes.pokemonText}>Release Notes: </p> v1.0</p>
                         <ul className={`${classes.ul} ${classes.releaseNotesList}`}>
                             <li className={classes.li}><p className={classes.pokemonText}>1 </p>Now you can play in your phone with a much more smooth experience. Check it out now!</li>
                             <li className={classes.li}><p className={classes.pokemonText}>2 </p>New rule for the "Play" game: Now you have only one chance with each composition. Make sure you are lucky today and try it!</li>
